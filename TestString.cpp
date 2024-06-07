@@ -12,19 +12,18 @@
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include <cassert>
 #include "CharUtil.h"
 #include "StrUtil.h"
-#include <cassert>
+#include "Util.h"
 
 using namespace PKIsensee;
-
-extern "C" { __declspec( dllimport ) void __stdcall DebugBreak(); }
 
 // Macros
 #ifdef _DEBUG
 #define test(e) assert(e)
 #else
-#define test(e) static_cast<void>( (e) || ( DebugBreak(), 0 ) )
+#define test(e) static_cast<void>( (e) || ( Util::DebugBreak(), 0 ) )
 #endif
 
 void TestChar()
