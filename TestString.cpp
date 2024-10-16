@@ -119,9 +119,15 @@ void TestString()
   test( trim == "abc abc xyz" );
   test( StrUtil::GetTrimmedTrailing( "abc abc xyz cbbacbaa cccc", "abc " ) == "abc abc xyz" );
 
-  test( StrUtil::IsNumeric( "1234" ) );
+  test( StrUtil::IsDigit( "1234567890" ) );
+  test( !StrUtil::IsDigit( "" ) );
+  test( !StrUtil::IsDigit( "-12.34" ) );
+
+  test( StrUtil::IsNumeric( "0987654321" ) );
   test( !StrUtil::IsNumeric( "" ) );
-  test( !StrUtil::IsNumeric( "-12.34" ) );
+  test( StrUtil::IsNumeric( "-12.34" ) );
+  test( !StrUtil::IsNumeric( "12-.34" ) );
+  test( StrUtil::IsNumeric( "192.168.0.1" ) );
 
   test( StrUtil::IsAlphaNum( "abcABC1234" ) );
   test( !StrUtil::IsAlphaNum( "" ) );
