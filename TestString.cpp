@@ -59,6 +59,7 @@ void TestChar()
   test( CharUtilT<wchar_t>::ToLower( L'A' ) == L'a' );
   test( CharUtilW::ToUpper( L'a' ) == L'A' );
   test( CharUtilW::ToLower( L'A' ) == L'a' );
+  test( CharUtil::ToUpper( 'ä' ) == 'ä' ); // expected behavior in the classic locale
 }
 
 void TestString()
