@@ -195,6 +195,9 @@ void TestStrList()
   test( a == b );
   b.front() = "zzz";
   test( a != b );
+  a.clear();
+  a.push_back( std::string( "efg" ) );
+  test( a.front() == "efg");
 }
 
 int __cdecl main()
